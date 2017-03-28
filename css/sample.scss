@@ -1,0 +1,397 @@
+@charset "utf-8";
+
+html {
+font-size: 62.5%;
+}
+
+@mixin fontsize($size: 24, $base: 10) {
+font-size: $size + px;
+font-size: ($size / $base) * 1rem;
+}
+
+$ja_font : "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Verdana, "ＭＳ Ｐゴシック", sans-serif;
+$bg_color : #f9f8f6;
+$gray1 : #e2ddd4;
+$gray2 : #b0b0b0;
+$gray3 : #887f69;
+$red : #9d1a2d;
+
+/**************************************/
+
+a {
+  text-decoration: none;
+  color: #524b3b;
+}
+
+body {
+  background: $bg_color;
+}
+
+header{
+  #header_in{
+    padding: 15px 0 0;
+  }
+  
+  @media (min-width: 550px) {
+    .sp_navi{
+      display: none;
+    }
+  }
+  
+  .pc_navi {
+    float: right;
+    padding: 17px 0 0;
+        
+    li {
+      display: inline-block;
+      list-style: none;
+      margin: 0 4px;
+      padding: 0;
+    }
+    // li
+  }  
+  // .pc_navi_li
+
+  @media (max-width: 549px) {
+    
+    .pc_navi{
+      display: none;
+    }
+    
+    text-align: center;
+    
+    .sp_navi{
+    
+      li{
+        display: inline-block;
+        list-style: none;
+        margin: 0 6px;
+        padding: 0;
+      }
+    }
+  }
+
+  .sp_navi_li{
+    width: 180px;
+    position: absolute;
+    right: 2%;
+    border: 1px solid #eee;
+    background: white;
+    margin: 0;
+    padding: 0;
+    display: none;
+    z-index: 110;
+
+    li{
+      display: block;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      a{
+        display: block;
+        padding: 8px 8px;
+        border-bottom: 1px solid #eee;
+      }
+    }
+  }
+  // min-width: 550px
+}
+// header
+/********************************************************************************/
+
+#main_field{
+  margin-bottom: 10px;
+  ul {
+    margin-bottom: 0;
+    li {
+      list-style: none;
+    }
+  }
+}
+
+.clearfix {
+  zoom:1;
+}
+
+.clearfix:after {
+  content:"";
+  display:block;
+  clear:both;
+}
+
+#new_items, #popular_items, #watch_list, #category_list {
+  
+  h1 {
+    @include fontsize(12);
+    text-align: center;
+    padding: 15px 15px;
+    margin-bottom: 0;
+  }
+  
+  ul {
+    margin-bottom: 0;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    flex-wrap: wrap;
+    li {
+      width: 33.3%;
+      @media (max-width: 549px) {
+        width: 50%;
+      }
+      margin-bottom: 0;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      flex-wrap: wrap;
+      a {
+        display: block;
+        padding: 7px;
+        border: 1px solid $bg_color;
+        background: white;
+      }
+      img {
+        display: block;
+        width: 100%;
+      }
+      .item_name, .item_price {
+        @include fontsize(12);
+        span {
+          margin-right: 5px;
+        }
+      }
+      .item_name{
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+// new_items, popular_items
+
+#shopping_guide {
+  
+  h1 {
+    @include fontsize(12);
+    text-align: center;
+    padding: 15px 15px;
+    margin-bottom: 0;
+  }
+  
+  #guide {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction:row;
+    flex-direction:row;
+    flex-wrap: wrap;
+    
+    #guide_left, #guide_right {
+      width: 50%;
+      @media (max-width: 549px) {
+        width: 100%;
+      }
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction:row;
+      flex-direction:row;
+      flex-wrap: wrap;
+      background: white;
+      
+      .guide_wrap {
+        width: 100%;
+        padding-bottom: 10px;
+        border:1px solid $bg_color;
+        h3 {
+          @include fontsize(15);
+          margin-bottom: 0;
+          margin:10px;
+          font-weight: bold;
+          color: #8a8168;
+        }
+        dl {
+          margin: 2px 10px;
+        }
+        dt{
+          @include fontsize(12);
+          margin: 5px, 10px;
+          font-weight: bold;
+          color: #8a8168;
+        }
+        dd {
+          @include fontsize(12);
+          margin: 5px, 0;
+          margin-left: 0;
+          color: #8a8168;
+        }
+      }
+    }
+    #guide_left{
+      .guide_pict{
+        margin-left: 10px;
+      }
+      img{
+        width: 50%;
+      }
+    }
+    #guide_right{
+      img{
+        width: 95%;
+      }
+    }
+  }
+}
+
+/****************************************************************************/
+footer {
+  #page_top {
+    text-align: right;
+    padding: 20px 0;
+    
+    
+    @media (max-width: 550px) {
+      text-align: center;
+    }
+  }
+  
+  ul {
+    text-align: center;
+    margin: 0 auto 20px;
+    padding-top: 20px;
+    border-top: 1px solid $gray2;
+    
+    li {
+      @media (min-width: 550px) {
+        display: inline-block;
+      }
+      margin: 0 5px;
+      padding: 0 10px;
+      list-style: none;
+    }
+  }
+  
+  small {
+    margin-bottom: 20px;
+    text-align: center;
+    color: $gray3;
+  }
+}
+
+
+/****************************************************************************/
+#search {
+  background: white;
+  padding: 15px 15px;
+  margin-bottom: 10px;
+  h1 {
+    @include fontsize(12);
+    padding: 15px 0 0 0;
+  }
+  
+  dl {
+    margin-bottom: 15px;
+  }
+  
+  form {
+    margin-bottom: 0;
+    
+    input[type="search"] {
+      background: #eee;
+      @include fontsize(11);
+      position: relative;
+      z-index: 0;
+      width: 80%;
+      height: 24px;
+      margin: auto;
+      padding: 3px 15% 3px 3%;
+      -webkit-appearance: textfield;
+      -moz-box-sizing: content-box;
+      -webkit-box-sizing: content-box;
+      box-sizing: content-box;
+      border:none;
+    }
+  
+    input[type="image"] {
+      float: right;
+      margin: -24px 5px 0 0;
+      position: relative;
+      z-index: 100;
+      height: 18px;
+    }
+  }
+  
+  @media (max-width: 549px) {
+    h1 {
+      display: none;
+    }
+  }
+}
+// search
+
+#link, #categories, #about, #shopinfo {
+  
+  background: white;
+  margin-bottom: 0;
+  h1 {
+    @include fontsize(12);
+    background: $gray3;
+    padding: 15px 15px;
+  }
+  
+  ul {
+    li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-bottom: 1px solid $bg_color;
+        a {
+          display: block;
+          @include fontsize(14);
+          padding: 10px 15px;
+        }
+    }
+  }
+  
+  .sub_img {
+    padding: 10px;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+  
+  .sub_text {
+    padding: 0 10px 10px;
+    @include fontsize(14);
+  }
+  
+  .more_button{
+    margin: 20px auto 10px;
+    text-align: center;
+  }
+}
+// link categories, about, shopinfo
+
+#link, #categories {
+  
+  h1 {
+    cursor:pointer;
+    background: $gray3 url(../images/top/next_icon.png) no-repeat 95% center;
+  }
+  
+  h1.openlink {
+    background: $gray3 url(../images/top/down_icon.png) no-repeat 95% center;
+  }
+  
+  ul {
+    display: none;
+    li{
+      a{
+        background: url(../images/top/next_icon_gray.png) no-repeat 95% center;
+      }
+    }
+  }
+  
+  
+}
